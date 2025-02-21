@@ -1,7 +1,7 @@
 module "mysql_sg" {
   source         = "git::https://github.com/vaheedgithubac/Infra.git//modules/security_group"
   vpc_id         = local.vpc_id
-  sg_name        = "mysql_db_sg"
+  sg_name        = "mysql_sg"
   sg_description = "Mysql Security Group"
 
   project_name = var.project_name
