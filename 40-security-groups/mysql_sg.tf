@@ -21,7 +21,7 @@ resource "aws_security_group_rule" "mysql_bastion" {
   depends_on  = [ module.bastion_sg ]
 }
 
-# backend(private instances in private_subnet)  --->  mysql (database_subnet)
+# backend (private instances in private_subnet)  --->  mysql (database_subnet)
 resource "aws_security_group_rule" "mysql_backend" {
   type                     = "ingress"
   from_port                = 3306
