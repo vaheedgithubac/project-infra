@@ -8,3 +8,12 @@ module "frontend_sg" {
   env          = var.env
   common_tags  = var.common_tags
 }
+
+resource "aws_security_group_rule" "frontend_web_alb" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  source_security_group_id = module.web_alb_sg.sg_id
+  security_group_id = module.frontend_sg.sg_id
+}
