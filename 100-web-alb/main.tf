@@ -26,7 +26,7 @@ health_check {
     interval            = 5
     matcher             = "200-299"
     path                = "/"        # "/health"
-    port                = 8080
+    port                = 80
     protocol            = "HTTP"
     timeout             = 4
   }
