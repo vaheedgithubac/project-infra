@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "mysql_bastion" {
   source_security_group_id = module.bastion_sg.sg_id
   security_group_id        = module.mysql_sg.sg_id
 
-  depends_on  = [ module.bastion_sg ]
+  depends_on = [module.bastion_sg]
 }
 
 # backend (private instances in private_subnet)  --->  mysql (database_subnet)
