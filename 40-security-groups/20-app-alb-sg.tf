@@ -8,3 +8,13 @@ module "app_alb_sg" {
   env          = var.env
   common_tags  = var.common_tags
 }
+
+# Allowing traffic from forntend ---> app_alb
+resource "aws_security_group_rule" "app_alb_frontend" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  source_security_group_id = module.frontend_sg.sg_id
+  security_group_id = module.app_alb_sg.sg_id
+}
