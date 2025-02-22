@@ -17,4 +17,6 @@ resource "aws_security_group_rule" "app_alb_frontend" {
   protocol          = "tcp"
   source_security_group_id = module.frontend_sg.sg_id
   security_group_id = module.app_alb_sg.sg_id
+
+  depends_on = [ module.frontend_sg ]
 }
