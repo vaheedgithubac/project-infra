@@ -1,4 +1,4 @@
-module "backend_sg" {
+module "frontend_sg" {
   source         = "git::https://github.com/vaheedgithubac/Infra.git//modules/security_group"
   vpc_id         = local.vpc_id
   sg_name        = "frontend_sg"
