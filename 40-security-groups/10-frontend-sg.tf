@@ -9,6 +9,7 @@ module "frontend_sg" {
   common_tags  = var.common_tags
 }
 
+# Allowing traffic from web_alb --->  frontend instances
 resource "aws_security_group_rule" "frontend_web_alb" {
   type              = "ingress"
   from_port         = 80
