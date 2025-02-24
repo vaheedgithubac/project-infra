@@ -15,9 +15,4 @@ variable "common_tags" {
 #   type    = map()
 #   default = {}
 # }
-####################################  SG Variables   ########################
-variable "sg_name" {}
 
-variable "sg_description" {}
-
-variable "vpc_id" {}
