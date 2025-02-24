@@ -13,8 +13,8 @@ module "alb" {
 }
 
 # create target group
-resource "aws_lb_target_group" "alb_target_group" {
-  name = "${local.resource_name}-web-tg"
+resource "aws_lb_target_group" "frontend_web_alb_target_group" {
+  name = "${local.resource_name}-frontend-web-alb-target-group"
   # target_type = "ip"
   port     = 80
   protocol = "HTTP"
@@ -83,13 +83,13 @@ resource "aws_lb_listener" "http" {
 # }
 
 # Create a Listener rule for ALB
-resource "aws_lb_listener_rule" "backend" {
+resource "aws_lb_listener_rule" "frontend" {
   listener_arn = aws_lb_listener.http.arn #local.app_alb_listener_arn
   priority     = 100                      # low priority will be evaluated first
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.alb_target_group.arn   #aws_lb_target_group.backend.arn
+    target_group_arn = aws_lb_target_group.frontend_web_alb_target_group.arn   #aws_lb_target_group.backend.arn
   }
 
   condition {}  # empty condition block
