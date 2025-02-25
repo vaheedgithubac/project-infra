@@ -3,7 +3,7 @@ module "frontend_web_asg_with_launch_template" {
 
   # Launch template variables
   lt_type                = "frontend_web"
-  image_id               = aws_ami_from_instance.frontend.id
+  image_id               = var.image_id
   instance_type          = var.instance_type
   key_name               = var.key_name
   vpc_security_group_ids = [local.sg_id]
