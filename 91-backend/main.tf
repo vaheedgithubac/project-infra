@@ -6,7 +6,7 @@ module "backend_app_asg_with_launch_template" {
   image_id               = aws_ami_from_instance.backend.id
   instance_type          = var.instance_type
   key_name               = var.key_name
-  vpc_security_group_ids = [local.vpc_security_group_id]
+  vpc_security_group_ids = [local.sg_id]
 
   # ASG variables
   asg_type            = "backend_app"
