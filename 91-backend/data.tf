@@ -12,3 +12,7 @@ data "aws_ssm_parameter" "private_key" {
   with_decryption = true
   depends_on      = [ aws_ssm_parameter.private_key ]
 }
+
+data "aws_ssm_parameter" "backend_app_target_group_arn" {
+  name = "/${var.project_name}/${var.env}/backend_app_target_group_arn"
+}
