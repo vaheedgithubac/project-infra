@@ -1,6 +1,6 @@
 This script expects the following inputs
 
-    1. image_id
+    1. image_id (base image for backend app)
     2. instance_type
     3. key_name
     4. You need to supply private key file with your private key
