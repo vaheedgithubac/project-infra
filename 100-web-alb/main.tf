@@ -60,7 +60,7 @@ resource "aws_lb_listener" "http" {
 
     fixed_response {
       content_type = "text/html"
-      message_body = "<center><h1>Hello, I am from frontend APP ALB</h1></center>"
+      message_body = "<center><h1>Hello, I am from frontend WEB ALB</h1></center>"
       status_code  = "200"
     }
   }
