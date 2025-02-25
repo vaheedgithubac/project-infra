@@ -2,9 +2,9 @@
 module "alb" {
   source = "git::https://github.com/vaheedgithubac/Infra//modules/alb"
 
-  internal              = true
-  alb_sg_ids            = [local.app_alb_sg_id]
-  subnets               = local.private_subnet_ids  
+  internal   = true
+  alb_sg_ids = [local.app_alb_sg_id]
+  subnets    = local.private_subnet_ids
   #vpc_id                = local.vpc_id
 
   project_name = var.project_name
@@ -14,36 +14,36 @@ module "alb" {
 
 # create target group
 resource "aws_lb_target_group" "backend_app_alb_target_group" {
-  name = "${local.resource_name}-backend-app-alb-target-group"
+  name = "${local.resource_name}-backend-app-tg" # "${local.resource_name}-backend-app-alb-target-group"
   # target_type = "ip"
   port     = 80
   protocol = "HTTP"
   vpc_id   = local.vpc_id
 
-health_check {
+  health_check {
     enabled             = true
     healthy_threshold   = 2
     unhealthy_threshold = 2
     interval            = 5
     matcher             = "200-299"
-    path                = "/"        # "/health"
+    path                = "/" # "/health"
     port                = 8080
     protocol            = "HTTP"
     timeout             = 4
   }
 
-# health_check {   AzeezSalu
-#   enabled             = true
-#   interval            = 300
-#   path                = "/"
-#   timeout             = 60
-#   matcher             = 200
-#   healthy_threshold   = 5
-#   unhealthy_threshold = 5
-# }
+  # health_check {   AzeezSalu
+  #   enabled             = true
+  #   interval            = 300
+  #   path                = "/"
+  #   timeout             = 60
+  #   matcher             = 200
+  #   healthy_threshold   = 5
+  #   unhealthy_threshold = 5
+  # }
 
-lifecycle {
-  create_before_destroy = true
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
@@ -90,10 +90,14 @@ resource "aws_lb_listener_rule" "backend" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.backend_app_alb_target_group.arn   #aws_lb_target_group.backend.arn
+    target_group_arn = aws_lb_target_group.backend_app_alb_target_group.arn #aws_lb_target_group.backend.arn
   }
 
-  condition {}  # empty condition block
+  condition {
+    path_pattern {
+      values = ["/*"] # This matches all paths
+    }
+  }
 
   #   condition {
   #     host_header {
@@ -101,3 +105,4 @@ resource "aws_lb_listener_rule" "backend" {
   #     }
   #   }
 }
+
