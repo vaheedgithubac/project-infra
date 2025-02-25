@@ -9,7 +9,7 @@ module "ec2" {
   associate_public_ip_address = true
 
   # is_nat_instance             = var.is_nat_instance  # creates NAT instance if true
-  # user_data                   = file("${path.module}/nat_user_data.sh")
+  # user_data                   = file("${path.module}/mysql_client_8.sh")
 
   project_name                = var.project_name
   env                         = var.env
