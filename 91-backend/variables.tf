@@ -1,4 +1,4 @@
-#############################   Common Variables   #########################################
+#############################   Common Variables   ###############################################################
 variable "project_name" { default = "expense" }
 variable "env" { default = "dev" }
 
