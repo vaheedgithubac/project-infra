@@ -21,6 +21,7 @@ resource "aws_lb_target_group" "backend_app_alb_target_group" {
   vpc_id   = local.vpc_id
 
 health_check {
+    enabled             = true
     healthy_threshold   = 2
     unhealthy_threshold = 2
     interval            = 5
