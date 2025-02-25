@@ -35,15 +35,15 @@ resource "null_resource" "backend" {
   }
 
   provisioner "file" {
-    source      = "backend.sh"
-    destination = "/tmp/backend.sh"
+    source      = "script_component_sw.sh"              # "backend.sh"
+    destination = "/tmp/script_component_sw.sh"
   }
 
   provisioner "remote-exec" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
-      "chmod +x /tmp/backend.sh",
-      "sudo sh /tmp/backend.sh backend dev"
+      "chmod +x /tmp/script_component_sw.sh",
+      "sudo sh /tmp/script_component_sw.sh backend dev"
     ]
   }
   depends_on = [aws_ssm_parameter.private_key]
