@@ -51,7 +51,7 @@ lifecycle {
 resource "aws_lb_listener" "http" {
   # count = var.internal ? 1 : 0
 
-  load_balancer_arn = module.alb.arn
+  load_balancer_arn = module.alb.alb_arn
   port              = "80"
   protocol          = "HTTP"
 
