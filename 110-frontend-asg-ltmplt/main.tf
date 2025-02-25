@@ -8,6 +8,8 @@ module "frontend_web_asg_with_launch_template" {
   key_name               = var.key_name
   vpc_security_group_ids = [local.sg_id]
 
+  user_data              = file("${path.module}/frontend-dev-user-data.sh")
+
   # ASG variables
   asg_type            = "frontend_web"
   target_group_arns   = [local.frontend_web_target_group_arn]
