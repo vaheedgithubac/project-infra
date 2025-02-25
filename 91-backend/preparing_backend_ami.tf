@@ -49,4 +49,37 @@ resource "null_resource" "backend" {
   depends_on = [aws_ssm_parameter.private_key]
 }
 
-  
+# Stop the EC2 instance
+resource "aws_ec2_instance_state" "backend" {
+  instance_id = module.ec2.instance_id
+  state       = "stopped"
+  depends_on = [ null_resource.backend ]
+}
+
+# Take AMI from previously stopped EC2 instance
+resource "aws_ami_from_instance" "backend" {
+  name               = "${local.resource_name}-ami"
+  source_instance_id = module.ec2.instance_id
+  depends_on = [ aws_ec2_instance_state.backend ]
+}
+
+# Delete the stopped EC2 instance after taking AMI from it
+resource "null_resource" "backend_delete" {
+
+  triggers = {
+    instance_id = module.ec2.instance_id
+  }
+
+  provisioner "local-exec" {
+    command = "aws ec2 terminate-instances --instance-ids ${module.ec2.instance_id}"
+  }
+
+  depends_on = [aws_ami_from_instance.backend]
+}
+
+
+
+
+
+
+
