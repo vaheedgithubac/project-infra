@@ -1,4 +1,4 @@
-module "ec2" {
+module "ec2" {   # to create backend ami
   source = "git::https://github.com/vaheedgithubac/Infra.git//modules/ec2"
 
   ami_id                      = var.ami_id
