@@ -5,3 +5,4 @@ locals {
   backend_app_target_group_arn = data.aws_ssm_parameter.backend_app_target_group_arn.value
   bastion_host_public_ip       = data.aws_ssm_parameter.bastion_host_public_ip.value
 }
+
