@@ -34,7 +34,7 @@ resource "null_resource" "backend" {
     # password = "DevOps321"
 
     # since private instance doesnt have public ip, we are connecting through bastion instance(which has public ip) to private instance 
-    bastion_host        = "15.206.66.25"
+    bastion_host        = local.bastion_host_public_ip
     bastion_user        = "ec2-user"
     bastion_private_key = base64decode(data.aws_ssm_parameter.private_key.value)
     agent               = false
