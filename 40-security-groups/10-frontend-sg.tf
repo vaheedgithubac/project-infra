@@ -30,5 +30,5 @@ resource "aws_security_group_rule" "frontend_web_alb" {
   source_security_group_id = module.bastion_sg.sg_id
   security_group_id        = module.frontend_sg.sg_id
 
-  depends_on = [ module.web_alb_sg, module.bastion_sg ]
+  depends_on = [ module.bastion_sg ]
 }
