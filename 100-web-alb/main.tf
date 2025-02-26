@@ -91,7 +91,11 @@ resource "aws_lb_listener_rule" "frontend" {
     target_group_arn = aws_lb_target_group.frontend_web_target_group.arn   #aws_lb_target_group.backend.arn
   }
 
-  condition {}  # empty condition block
+  condition {
+    path_pattern {
+      values = ["/*"] # This matches all paths
+    }
+  }
 
   #   condition {
   #     host_header {
