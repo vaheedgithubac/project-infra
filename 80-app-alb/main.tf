@@ -22,14 +22,14 @@ resource "aws_lb_target_group" "backend_app_target_group" {
 
   health_check {
     enabled             = true
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    interval            = 5
+    healthy_threshold   = 5
+    unhealthy_threshold = 5
+    interval            = 30
     matcher             = "200-299"
     path                = "/health"    # "/"
     port                = 8080
     protocol            = "HTTP"
-    timeout             = 4
+    timeout             = 60
   }
 
   # health_check {   AzeezSalu
