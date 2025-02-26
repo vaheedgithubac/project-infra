@@ -21,3 +21,4 @@ data "aws_ssm_parameter" "bastion_host_public_ip" {
   name = "/${var.project_name}/${var.env}/bastion_host_public_ip"
 }
 
+
