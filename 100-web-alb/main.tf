@@ -13,7 +13,7 @@ module "alb" {
 }
 
 # create target group
-resource "aws_lb_target_group" "frontend_web_alb_target_group" {
+resource "aws_lb_target_group" "frontend_web_target_group" {
   name = "${local.resource_name}-frontend-web-tg"
   # target_type = "ip"
   port     = 80
@@ -88,7 +88,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.frontend_web_alb_target_group.arn   #aws_lb_target_group.backend.arn
+    target_group_arn = aws_lb_target_group.frontend_web_target_group.arn   #aws_lb_target_group.backend.arn
   }
 
   condition {}  # empty condition block
