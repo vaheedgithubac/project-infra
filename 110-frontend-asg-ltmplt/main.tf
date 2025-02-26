@@ -13,7 +13,7 @@ module "frontend_web_asg_with_launch_template" {
   # ASG variables
   asg_type            = "frontend_web"
   target_group_arns   = [local.frontend_web_target_group_arn]
-  vpc_zone_identifier = [local.public_subnet_ids]
+  vpc_zone_identifier = local.public_subnet_ids
 
   project_name = var.project_name
   env          = var.env
