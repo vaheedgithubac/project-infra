@@ -19,3 +19,4 @@ module "bastion_ec2" {
   common_tags  = var.common_tags
 }
 
+
