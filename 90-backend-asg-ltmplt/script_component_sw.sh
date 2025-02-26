@@ -1,4 +1,5 @@
 #!/bin/env bash
+
 # This script expects 2 parameters 1.component(frontend/backend/database) 2.env(dev/stage/prod) 
 # usage: frontend.sh frontend dev
 component=$1
