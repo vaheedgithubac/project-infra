@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "frontend_web_alb" {
 }
 
 # Allowing traffic from bastion(22) --->  frontend instances
-resource "aws_security_group_rule" "frontend_web_alb" {
+resource "aws_security_group_rule" "frontend_bastion" {
   type                     = "ingress"
   from_port                = 22
   to_port                  = 22
