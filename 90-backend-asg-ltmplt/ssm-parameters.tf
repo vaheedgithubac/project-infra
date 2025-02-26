@@ -10,3 +10,4 @@ resource "aws_ssm_parameter" "private_key" {
 output "private_key_ssm_parameter" {
   value = aws_ssm_parameter.private_key.name
 }
+
