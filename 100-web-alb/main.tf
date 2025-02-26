@@ -14,7 +14,7 @@ module "alb" {
 
 # create target group
 resource "aws_lb_target_group" "frontend_web_target_group" {
-  name = "${local.resource_name}-frontend-web-tg"
+  name = "${local.resource_name}-frontend-web-tg"    # max 32 characters long
   # target_type = "ip"
   port     = 80
   protocol = "HTTP"
