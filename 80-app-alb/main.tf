@@ -49,8 +49,6 @@ resource "aws_lb_target_group" "backend_app_alb_target_group" {
 
 # create Listener for ALB
 resource "aws_lb_listener" "http" {
-  # count = var.internal ? 1 : 0
-
   load_balancer_arn = module.alb.alb_arn
   port              = "80"
   protocol          = "HTTP"
