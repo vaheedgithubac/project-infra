@@ -1,7 +1,7 @@
 module "ec2" {   # to create backend ami
   source = "git::https://github.com/vaheedgithubac/Infra.git//modules/ec2"
 
-  ami_id                      = var.ami_id
+  ami_id                      = var.image_id
   instance_type               = var.instance_type
   public_key_name             = var.public_key_name
   sg_id                       = [ local.sg_id ]
