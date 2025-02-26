@@ -5,7 +5,7 @@ module "frontend_web_asg_with_launch_template" {
   lt_type                = "frontend_web"
   image_id               = var.image_id
   instance_type          = var.instance_type
-  key_name               = var.key_name
+  key_name               = var.public_key_name
   vpc_security_group_ids = [local.sg_id]
 
   user_data              = file("${path.module}/frontend-dev-user-data.sh")
