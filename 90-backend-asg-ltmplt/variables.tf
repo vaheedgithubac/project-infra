@@ -15,3 +15,4 @@ variable "public_key_name" {}
 variable "instance_type" {} # t2.micro / t2.small / t2.medium  only ( our ec2 module allows these 3 types only )
 ##################################################################################################################
 
+
