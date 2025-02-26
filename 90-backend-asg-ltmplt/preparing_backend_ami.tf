@@ -41,6 +41,10 @@ resource "null_resource" "backend" {
     
   }
 
+  provisioner "remote-exec" {
+    inline = [ "echo '*** Successfully connected through bastion host to private instance ***' " ]
+  }
+  
   provisioner "file" {
     source      = "script_component_sw.sh"              # "backend.sh"
     destination = "/tmp/script_component_sw.sh"
