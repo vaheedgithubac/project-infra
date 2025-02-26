@@ -26,7 +26,7 @@ resource "aws_lb_target_group" "backend_app_target_group" {
     unhealthy_threshold = 2
     interval            = 5
     matcher             = "200-299"
-    path                = "/" # "/health"
+    path                = "/health"    # "/"
     port                = 8080
     protocol            = "HTTP"
     timeout             = 4
