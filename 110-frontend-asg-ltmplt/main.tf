@@ -10,7 +10,7 @@ module "frontend_web_asg_with_launch_template" {
 
   associate_public_ip_address = true
 
-  user_data              = file("${path.module}/frontend-dev-user-data.sh")
+  user_data              = filebase64("${path.module}/frontend-dev-user-data.sh")
 
   # ASG variables
   min_size                  = 1
