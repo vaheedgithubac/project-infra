@@ -29,7 +29,7 @@ health_check {
     path                = "/"        # "/health"
     port                = 80
     protocol            = "HTTP"
-    timeout             = 30
+    timeout             = 60
   }
 
 # health_check {   AzeezSalu
