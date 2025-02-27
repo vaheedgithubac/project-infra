@@ -29,7 +29,7 @@ resource "aws_lb_target_group" "backend_app_target_group" {
     path                = "/health"    # "/"
     port                = 8080
     protocol            = "HTTP"
-    timeout             = 30
+    timeout             = 60
   }
 
   # health_check {   AzeezSalu
