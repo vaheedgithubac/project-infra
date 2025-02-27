@@ -16,7 +16,7 @@ module "alb" {
 resource "aws_lb_target_group" "backend_app_target_group" {
   name = "${local.resource_name}-backend-app-tg" # "${local.resource_name}-backend-app-alb-target-group"  # max 32 characters long
   # target_type = "ip"
-  port     = 80
+  port     = 8080
   protocol = "HTTP"
   vpc_id   = local.vpc_id
 
