@@ -19,6 +19,7 @@ resource "aws_lb_target_group" "backend_app_target_group" {
   port     = 8080
   protocol = "HTTP"
   vpc_id   = local.vpc_id
+  deregistration_delay = 60
 
   health_check {
     enabled             = true
