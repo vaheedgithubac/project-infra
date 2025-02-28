@@ -9,11 +9,11 @@ pip3 --version
 sudo pip3 install ansible
 ansible --version
 
-git clone https://github.com/vaheedgithubac/exp-ansible-roles-sws.git
-ansible-playbook -i localhost, -c local exp-ansible-roles-sws/main.yml -e component=frontend -e env=dev
+git clone https://github.com/vaheedgithubac/exp-ansible-roles-sws-tf.git
+ansible-playbook -i localhost, -c local exp-ansible-roles-sws-tf/main.yml -e component=frontend -e env=dev
 
-git clone https://github.com/vaheedgithubac/exp-ansible-roles-apps.git
-ansible-playbook -i localhost, -c local exp-ansible-roles-apps/main.yml -e component=frontend -e env=dev
+git clone https://github.com/vaheedgithubac/exp-ansible-roles-apps-tf.git
+ansible-playbook -i localhost, -c local exp-ansible-roles-apps-tf/main.yml -e component=frontend -e env=dev
 
 
 #ansible-pull -i localhost, 
