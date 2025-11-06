@@ -22,8 +22,8 @@ module "vpc-peering" {
   source = "git::https://github.com/vaheedgithubac/Infra//modules/vpc_peering"   # Give the path to VPC MODULE accordingly
 
   region                       =  var.region
-  requester_vpc_id             =  var.requester_vpc_id
-  accepter_vpc_id              =  var.accepter_vpc_id
+  requester_vpc_id             =  module.vpc-org.
+  accepter_vpc_id              =  local.accepter_vpc_id
   peering_dest_cidr_requester  =  "10.200.0.0/16         # var.peering_dest_cidr_requester
   peering_dest_cidr_accepter   =  var.peering_dest_cidr_accepter
 }
