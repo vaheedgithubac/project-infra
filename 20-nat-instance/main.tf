@@ -9,7 +9,7 @@ module "nat_instance" {
   public_key_name                         = var.public_key_name #"mumbai-1"
   public_subnet_ID_to_launch_nat_instance = local.public_subnet_ids[0]
   public_subnet_cidr                      = local.public_subnet_cidr  # for private instance sg purpose
-  private_subnet_cidr                     = local.private_subnet_cidr # for databse instance sg purpose
+  private_subnet_cidr                     = local.private_subnet_cidr # for database instance sg purpose
   # private_subnet_ids                      = local.private_subnet_ids #module.vpc.private_subnet_ids 
   remote_ip_to_connect_nat_instance = "${var.remote_ip_to_connect_nat_instance}/32"
 
