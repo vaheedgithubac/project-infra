@@ -28,12 +28,12 @@ module "vpc" {
 #   private_subnet_count  = 1
 #   database_subnet_count = 1
 
-#   vpc_cidr             = "10.100.0.0/16"
-#   public_subnet_cidr   = ["10.100.1.0/24"]
-#   private_subnet_cidr  = ["10.100.11.0/24"]
-#   database_subnet_cidr = ["10.100.31.0/24"]
+#   vpc_cidr             = "10.200.0.0/16"
+#   public_subnet_cidr   = ["10.200.1.0/24"]
+#   private_subnet_cidr  = ["10.200.11.0/24"]
+#   database_subnet_cidr = ["10.200.31.0/24"]
 
-#   project_name = var.project_name
-#   env          = var.env
+#   project_name = var.project_name   # "org"
+#   env          = var.env            # "dev"
 #   common_tags  = var.common_tags
 # }
