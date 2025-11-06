@@ -24,7 +24,7 @@ module "vpc-peering" {
   region                       =  var.region
   requester_vpc_id             =  var.requester_vpc_id
   accepter_vpc_id              =  var.accepter_vpc_id
-  peering_dest_cidr_requester  =  var.peering_dest_cidr_requester
+  peering_dest_cidr_requester  =  "10.200.0.0/16         # var.peering_dest_cidr_requester
   peering_dest_cidr_accepter   =  var.peering_dest_cidr_accepter
 }
 ############################################################################################################################
