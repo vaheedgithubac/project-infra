@@ -1,3 +1,4 @@
+variable "region" {}
 variable "project_name" { default = "org" }
 variable "env" { default = "dev" }
 
