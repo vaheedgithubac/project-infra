@@ -26,8 +26,8 @@ module "vpc-peering" {
   accepter_vpc_id              =  local.accepter_vpc_id                        # "/expense/dev/vpc_id"      
   requester_vpc_cidr           =  local.requester_vpc_cidr
   accepter_vpc_cidr            =  local.accepter_vpc_cidr
-  requester_route_table_ids    =  local.requester_route_table_ids
-  accepter_route_table_ids     =  local.accepter_route_table_ids
+  requester_vpc_route_table_ids    =  local.requester_route_table_ids
+  accepter_vpc_route_table_ids     =  local.accepter_route_table_ids
 }
 ############################################################################################################################
 # VPC-MODULE Calling
