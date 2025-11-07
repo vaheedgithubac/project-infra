@@ -8,11 +8,11 @@ data "aws_ssm_parameter" "accepter_vpc_id" {
 ###############################################################################
 
 data "aws_vpc" "requester" {
-  id = var.requester_vpc_id
+  id = local.requester_vpc_id
 }
 
 data "aws_vpc" "accepter" {
-  id = var.accepter_vpc_id
+  id = local.accepter_vpc_id
 }
 
 ###############################################################################
