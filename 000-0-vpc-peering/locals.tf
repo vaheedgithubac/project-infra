@@ -5,6 +5,6 @@ locals {
   requester_vpc_cidr = data.aws_vpc.requester.cidr_block
   accepter_vpc_cidr  = data.aws_vpc.accepter.cidr_block
 
-  requester_route_table_ids  =  
-  accepter_route_table_ids  =
+  requester_route_table_ids  = data.aws_route_tables.requester.ids 
+  accepter_route_table_ids  = data.aws_route_tables.accepter.ids
 }
