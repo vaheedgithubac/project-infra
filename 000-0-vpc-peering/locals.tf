@@ -6,5 +6,5 @@ locals {
   accepter_vpc_cidr  = data.aws_vpc.accepter.cidr_block
 
   requester_route_table_ids  = data.aws_route_tables.requester.ids 
-  accepter_route_table_ids  = data.aws_route_tables.accepter.ids
+  accepter_route_table_ids   = data.aws_route_tables.accepter.ids
 }
